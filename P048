@@ -1,0 +1,24 @@
+"""The series, 1^1 + 2^2 + 3^3 + ... + 10^10 = 10405071317.
+
+Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
+
+"""
+
+#110846700
+#First attempt
+
+def getTotal(num):
+    total = num**num
+    return total
+
+def lastTenDigits(rangeMax):
+    total = 0
+    for x in range(1, rangeMax + 1):
+        nextTerm = str(getTotal(x))
+        if len(nextTerm) > 10:
+            nextTerm = nextTerm[-10:]
+        total += int(nextTerm)
+        if len(str(total)) > 10:
+            total = int(str(total)[-10:])
+    return total
+
